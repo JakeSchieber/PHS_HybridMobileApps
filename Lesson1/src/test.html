@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Lesson 1</title>
+    <style></style>
+      
+  </head>
+  <body>
+
+  <h1>Rock, Paper, Scissors</h1>
+  <p>Please input a number between 1 and 10:</p>
+
+  <input id="choice">
+
+  <button type="button" onclick="myFunction()">Submit</button>
+
+  <p id="compChoice"></p>
+  <p id="outcome"></p>
+
+
+<!--
+  More advanced game play with functions selecting divs from the document.
+  -->
+<!--
+  What do we need to look into yet:
+  Javascript is a programming language.
+    What then is angular, JQuery, bootrstrap
+   
+  Next week we will work with bootstrap to make this look much better and cleaner
+  
+  What are the basic parts to a page.
+  
+  What is a span?
+-->
+  <!-- This we could also export to an external library. -->
+  <script>
+    var game = {
+      title: 'Super Duper Game',
+      wins: 0,
+      losses: 0,
+      reset: function(){
+        this.wins = 0;
+        this.losses = 0;
+        
+        /*
+          Here we want to try to modularize everything that we can.
+          Perhaps this can be a part 2. Showing what a different way to
+          structure the code might look like.
+        */
+      }
+    };
+    
+    /**
+     * Grabs user choice from input selection, validates it, then returns formatted string
+     */
+    function getInput() {
+      var userIn = document.getElementById("choice").value;
+      userIn = userIn.toLowerCase();
+      userIn = userIn.trim();
+      
+      if(userIn != 'rock' && userIn != 'paper' && userIn != 'scissors') {
+        alert("Oops, invalid input");
+        return null;
+      }
+      return userIn
+    }
+    /**
+     * Handles a victory display on screen.
+     * Call this after it has been determined that user has won.
+     */
+    function handleVictory() {
+      alert("victory!");
+      // Change the color of the last element
+    }
+    /**
+     * Handles a defeat display on screen.
+     * Call this after it has been determined that user has lost
+     */
+    function handleDefeat() {
+      alert("defeat!");
+    }
+    /**
+     * This is called to reset the board so that we can play again.
+     */
+    function playAgain() {
+      document.getElementById("choice").value
+    }
+    /**
+     *
+     */
+    function handleGame() {
+      // This function could hold something like the game score.
+      // Can we initialize victories to 0-0 then slowly count up from there.
+    }
+    /**
+     * Use this function to control something fun on the page.
+     * Perhaps we can use this as a marker of victory/defeat
+     */
+    function setlastGameColor(color) {
+      document.getElementById('score').style.color = color;
+    }
+    
+    /**
+     * What we really want to do is create a state machine that lets us.
+     */
+    
+    /**
+     * Run this code when the script is loaded.
+     * This will run like the main loop of our program.
+     * 
+     * It should be taught this primes our game to start so we should start with this playing a single game
+     * we should then move this code out of this section and into a game 
+     */
+    window.onload = function(e){
+      // Get user test selection?
+      var userChoice = prompt("What is your move?");
+      
+      // A huge part in be able to create fun games is to simulate human interation
+      // how do you think that we can pretend to be a human?
+      // We have to know what options are available to us and then randomly pick one.
+      // NOTE of caution: Remember arrays in coding languages are zero indexed
+      var options = ['rock', 'paper', 'scissors'];
+      // Generate an option beteen 1 and 10.
+      var compChoice = Math.floor((Math.random() * 10));
+      // by taking remainded we force the number to be between 0 and 2 (>= 3 would not be the remained)
+      compChoice = compChoice % 3;
+      // WARNING: This is pseudo random: 0 have 4/10 and 1 and 2 have 3/10 chance of being picked.
+      alert(options[compChoice]);
+      
+      // discussion on falsey variables???
+      var win = false, tie = false, error = true;
+      switch(userChoice) {
+        case 'rock': 
+          if(compChoice == 'rock'){
+            tie = true;
+          } else if(compChoice == 'paper') {
+            win = true;
+          }
+          break;
+        case 'rock': 
+          if(compChoice == 'rock'){
+            tie = true;
+          } else if(compChoice == 'paper') {
+            win = true;
+          }
+          break;
+        case 'rock': 
+          if(compChoice == 'rock'){
+            tie = true;
+          } else if(compChoice == 'paper') {
+            win = true;
+          }
+          break;
+        default:
+          error = true;
+      }
+      
+      if(error){
+        // oops, user enterred in an invalid option.
+      } else if(win) {
+        // congrats you won
+      } else if(tie) {
+        // rats you tied
+      } else {
+        // sorry you lost
+      }
+      
+      // Now we should prompt the user to start again
+    }
+  </script>
+
+  </body>
+</html> 

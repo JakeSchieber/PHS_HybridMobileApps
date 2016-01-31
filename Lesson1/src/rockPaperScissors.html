@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Rock paper scissors.</title>
+  </head>
+  <body>
+
+  <h1>Rock, Paper, Scissors</h1>
+  <p>Follow the notification windows.</p>
+  
+  <script>
+    // infinate game loop.
+    while(prompt('Would you like to play a game?') != 'no') {
+      // Get user test selection
+      var userChoice = prompt("What is your move?").toLowerCase();
+      alert("You choose: " + userChoice);
+      
+      // A huge part in be able to create fun games is to simulate human interation
+      // how do you think that we can pretend to be a human?
+      // We have to know what options are available to us and then randomly pick one.
+      // NOTE of caution: Remember arrays in coding languages are zero indexed
+      var options = ['rock', 'paper', 'scissors'];
+      
+      // Math.random() returns a random number between 0 and 1.
+      // Generate an option beteen 1 and 10.
+      var compChoice = Math.floor((Math.random() * 100));
+      // by taking remainded we force the number to be between 0 and 2 (>= 3 would not be the remained)
+      compChoice = compChoice % 3;
+      compChoice = options[compChoice]
+      // WARNING: This is pseudo random, good enough for demo.
+      
+      alert("The computer chosose: " + compChoice);
+      
+      var win = false, tie = false, error = false;
+      if(userChoice == 'rock'){
+        if(compChoice == 'rock'){
+          tie = true;
+        } else if(compChoice == 'scissors') {
+          // Why are we only setting the true condition here? Because we have already defaulted our variables to false.
+          win = true;
+        }
+      } else if(userChoice == 'paper'){
+        if(compChoice == 'paper'){
+          tie = true;
+        } else if(compChoice == 'rock') {
+          win = true;
+        }
+      } else if(userChoice == 'scissors'){
+        if(compChoice == 'scissors'){
+          tie = true;
+        } else if(compChoice == 'paper') {
+          win = true;
+        }
+      } else {
+        error = true;
+      }
+      
+      if(win){
+        alert("Congrats you have won!");
+      } else if(tie) {
+        alert("You tied");
+      } else if(error) {
+        alert("Oops something went wrong!");
+      } else {
+        alert("Sorry you lost!");
+      }
+    }
+    alert('Thanks for playing!');
+  </script>
+
+  </body>
+</html> 
