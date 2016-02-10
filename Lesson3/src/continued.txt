@@ -1,0 +1,19 @@
+We ended lesson 2 by connecting the submit button of a form to 
+a javascript callback function, but were never able to do any real compution.
+For this reason lesson3 will simply be the second half of the calculator of lesson2.
+
+We will need to go over the basic javascript types: 
+https://msdn.microsoft.com/en-us/library/7wkd9z69(v=vs.94).aspx
+
+Basic:
+String, Number, Boolean
+
+Complex:
+Object, Array
+
+Special:
+Null, Undefined, NAN
+
+We will further go over form validation as our calculator will require us to trim white space
+and convert from type String to Number in order to perform a number based calculation.
+We will present this quandry by "Accidental" string concatenation.

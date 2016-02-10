@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* 
+        CSSnClasses can be used to apply the same styles to multiple elements in a documents
+      */
+      .fun {
+        color: blue;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body style="background-color: #eee;">
+    
+    <h1>Awesome Sauce Calculator</h1>
+    <p>I help you calculate things</p>
+    
+    <input type="text" id="num1" />
+    <br>
+    <select id="operation">
+      <option value="multiply">Multiply</option>
+      <option value="divide">Divide</option>
+      <option value="add">Add</option>
+      <option value="subtract">Subtract</option>
+    </select>
+    <br>
+    <input type="text" id="num2" />
+    <br>
+    <input type="submit" value="Calculate!" onclick="calculate()" />
+    <br><br>
+    <h2 style="display:none" id="answerBlk">Answer: <span id="answer"></span></h2>
+    
+    <script>
+      // This is going to be executed as the page is being processed
+      // alert("Lets get started!");
+      
+      // This function can be freely called at any point.
+      function funfun() {
+        var input = document.getElementById('in').value;
+        alert(input);
+      }
+      
+      function calculate() {
+        // the inputs at this time are a string
+        var num1 = parseInt(document.getElementById('num1').value);
+        if(isNaN(num1)){
+          alert("Oops, num1 is not a valid number!");
+          return;
+        }
+        var num2 = parseInt(document.getElementById('num2').value);
+        if(isNaN(num2)){
+          alert("Oops, num2 is not a valid number!");
+          return;
+        }
+        
+        var op = document.getElementById('operation').value;
+        var ans;
+        if(op == "multiply"){
+          ans = num1 * num2;
+        } else if(op == "divide"){
+          ans = num1 / num2;
+        } else if(op == "add"){
+          ans = num1 + num2;
+        } else if(op == "subtract"){
+          ans = num1 - num2;
+        }
+        document.getElementById("answer").innerText = ans;
+        document.getElementById('answerBlk').style.display = 'block';
+      }
+    </script>
+  </body>
+</html>
