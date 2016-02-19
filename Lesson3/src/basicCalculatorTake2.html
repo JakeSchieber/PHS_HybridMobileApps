@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* 
+        CSSnClasses can be used to apply the same styles to multiple elements in a documents.
+        This way we code something once, and easily reuse it as much as you want.
+        
+        Good code layout allows for you to write more readable code faster!
+      */
+      .fun {
+        color: blue;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body style="background-color: #eee; text-align: center">
+    
+    <h1>Awesome Sauce Calculator</h1>
+    <p class="fun">I help you calculate things</p>
+    
+    <div style="border-radius: 8px; background-color: white; border: 3px solid blue; width: 200px; margin: 0 auto; padding: 15px;">
+      <input type="text" id="num1" />
+      <br>
+      <select id="operation">
+        <option value="multiply">Multiply</option>
+        <option value="divide">Divide</option>
+        <option value="add">Add</option>
+        <option value="subtract">Subtract</option>
+      </select>
+      <br>
+      <input type="text" id="num2" />
+      <br>
+      <input type="submit" value="Calculate!" onclick="calculate()" />
+      <br><br>
+      <h2 style="display:none" id="answerBlk">Answer: <span id="answer"></span></h2>
+    </div>
+    
+    <script>
+      /*
+        Demonstrating that Anything that goes here will be run on page load.
+        Whether calls to standard or personal functions.
+      */
+      // console.log("Im Running");
+      // funfun();
+      function funfun() {
+        console.log("Yay! you called me!");
+      }
+      
+      /*
+        Functions can freely be associated to form click elements with an onclick field
+        Ids also allow for us to easily grab input element's value from the DOM
+        
+        Seeing here what NaN is, how to parse ASCII text into integer
+          * What are the three types? String, number, boolean - Object, Array, NaN, exc
+        String concatenation if you add strings and not numbers
+          * What happens when you add a string to a number (default behaviour)
+        The use of javascript's to set DOM data with innerText and style calls
+      */
+      function calculate() {
+        // the inputs at this time are a string
+        var num1 = parseInt(document.getElementById('num1').value);
+        if(isNaN(num1)){
+          alert("Oops, num1 is not a valid number!");
+          return;
+        }
+        var num2 = parseInt(document.getElementById('num2').value);
+        if(isNaN(num2)){
+          alert("Oops, num2 is not a valid number!");
+          return;
+        }
+        
+        var op = document.getElementById('operation').value;
+        var ans;
+        if(op == "multiply"){
+          ans = num1 * num2;
+        } else if(op == "divide"){
+          ans = num1 / num2;
+        } else if(op == "add"){
+          ans = num1 + num2;
+        } else if(op == "subtract"){
+          ans = num1 - num2;
+        }
+        document.getElementById("answer").innerText = ans;
+        document.getElementById('answerBlk').style.display = 'block';
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+﻿<!-- 
+  This was the main project for this class. We did our best to create a basic calculator application.
+  We finished with a discussion on javascript types as originally our calculator performed string concatenation
+  and not addition from the form elements.
+  -->
+<!doctype html>
+<html>
+	<body>
+		<h1>A fun Calculator</h1>
+		<p>... put instructions here... </p>
+
+		<input type="text" id="num1" />
+		<input type="text" id="num2" />
+		<input type="submit" onclick="calculate()"/>
+
+		<script>
+			function calculate() {
+				var num1 = document.getElementById("num1").value;
+				var num2 = document.getElementById("num2").value;
+				alert(num1);
+				alert(num2);
+				alert(parseInt(num1) + parseInt(num2));
+			}
+		</script>
+	</body>
+</html>
