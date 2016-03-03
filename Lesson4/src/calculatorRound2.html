@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      /* 
+        CSSnClasses can be used to apply the same styles to multiple elements in a documents.
+        This way we code something once, and easily reuse it as much as you want.
+        
+        Good code layout allows for you to write more readable code faster!
+      */
+      .fun {
+        color: blue;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body id="back" style="background-color: #FFF; text-align: center">
+    
+    <h1>Awesome Sauce Calculator</h1>
+    <p class="fun">I help you calculate things</p>
+    
+    <div id="box" style="border-radius: 8px; background-color: white; border: 3px solid black; width: 200px; margin: 0 auto; padding: 15px;">
+      <input type="text" id="num1" />
+      <br>
+      <select id="operation">
+        <option value="multiply">Multiply</option>
+        <option value="divide">Divide</option>
+        <option value="add">Add</option>
+        <option value="subtract">Subtract</option>
+      </select>
+      <br>
+      <input type="text" id="num2" />
+      <br>
+      <input type="submit" value="Calculate!" onclick="calculate()" />
+      <br><br>
+      <h2 style="display:none" id="answerBlk">Answer: <span id="answer"></span></h2>
+      
+      <hr />
+      <select id="colorSelect" onchange="setBorderColor()">
+        <option value="">-----</option>
+        <option value="red">red</option>
+        <option value="green">green</option>
+        <option value="blue">blue</option>
+        <option value="white">white</option>
+        <option value="purple">purple</option>
+      </select>
+      
+      <hr />
+      <select id="colorSelect2" onchange="setBackgroundColor()">
+        <option value="#FFF">0</option>
+        <option value="#DDD">1</option>
+        <option value="#AAA">2</option>
+        <option value="#666">3</option>
+        <option value="#333">4</option>
+        <option value="#000">5</option>
+      </select>    
+      
+      
+      <hr />
+      <button id="calcBtn1" type="button" onclick="calcBtn(1)">1</button>
+      <button id="calcBtn2" type="button" onclick="calcBtn(2)">2</button>
+      <button id="calcBtn3" type="button" onclick="calcBtn(3)">3</button>
+      <br>
+      <button id="calcBtn4" type="button" onclick="calcBtn(4)">4</button>
+      <button id="calcBtn5" type="button" onclick="calcBtn(5)">5</button>
+      <button id="calcBtn6" type="button" onclick="calcBtn(6)">6</button>
+      <br>
+      <button id="calcBtn7" type="button" onclick="calcBtn(7)">7</button>
+      <button id="calcBtn8" type="button" onclick="calcBtn(8)">8</button>
+      <button id="calcBtn9" type="button" onclick="calcBtn(9)">9</button>
+      <br>
+      <select id="op2">
+        <option value="multiply">Multiply</option>
+        <!-- remembering the order you clicked buttons is slightly hard
+        <option value="divide">Divide</option> -->
+        <option value="add">Add</option>
+        <option value="subtract">Subtract</option>
+      </select>
+      <br>
+      <input type="submit" value="Calculate!" onclick="calculate2()" />
+    </div>
+    
+    <script>
+      /*
+        Demonstrating that Anything that goes here will be run on page load.
+        Whether calls to standard or personal functions.
+      */
+      // console.log("Im Running");
+      // funfun();
+      function funfun() {
+        console.log("Yay! you called me!");
+      }
+      
+      /**
+       * This function sets the border color of our calculator application.
+       */
+      function setBorderColor() {
+        var selectedColor = document.getElementById('colorSelect').value;
+        
+        // empty string is nullable
+        if(!selectedColor) {
+          // default to black on nothing selected
+          selectedColor = "black";
+        }
+        document.getElementById('box').style.borderColor = selectedColor;
+      }
+      /**
+       * This funciton sets the background color of our calculator application.
+       */
+      function setBackgroundColor() {
+        var level = document.getElementById('colorSelect2').value;
+        if(!level) {
+          selectedColor = "#FFF";
+        }
+        document.getElementById('back').style.backgroundColor = level;  
+      }
+      
+      /*
+        Functions can freely be associated to form click elements with an onclick field
+        Ids also allow for us to easily grab input element's value from the DOM
+        
+        Seeing here what NaN is, how to parse ASCII text into integer
+          * What are the three types? String, number, boolean - Object, Array, NaN, exc
+        String concatenation if you add strings and not numbers
+          * What happens when you add a string to a number (default behaviour)
+        The use of javascript's to set DOM data with innerText and style calls
+      */
+      function calculate() {
+        // the inputs at this time are a string
+        // what is the difference between parseFloat and parseInt?
+        // javascript actually stores all numbers as floating point numbers. Functions like parseInt
+          // just provide the abstraction that you are working with integers (even though they are just rounding
+          // and returning a floating point in the process.)
+        var num1 = parseFloat(document.getElementById('num1').value);
+        if(isNaN(num1)){
+          alert("Oops, num1 is not a valid number!");
+          return;
+        }
+        var num2 = parseFloat(document.getElementById('num2').value);
+        if(isNaN(num2)){
+          alert("Oops, num2 is not a valid number!");
+          return;
+        }
+        
+        var op = document.getElementById('operation').value;
+        var ans;
+        if(op == "multiply"){
+          ans = num1 * num2;
+        } else if(op == "divide"){
+          ans = num1 / num2;
+        } else if(op == "add"){
+          ans = num1 + num2;
+        } else if(op == "subtract"){
+          ans = num1 - num2;
+        }
+        document.getElementById("answer").innerText = ans;
+        document.getElementById('answerBlk').style.display = 'block';
+      }
+      
+      var selected1, selected2;
+      var selected1Val, selected2Val;
+      function calcBtn(btn) {
+        // why not simply use an if switch here? --> This is more obvious to understand
+        var clickedBtn = "calcBtn"+btn;
+        // alert(clickedBtn);
+        
+        // require the user to click 2 different numbers
+        if(clickedBtn == selected1){
+          console.log("Clicked the same button twice in a row.");
+          return;
+        }
+        
+        // good chance to show accessign null on first run. Errors in the console.
+        if(selected2) {
+          // these are the proper defaults for a button, we can go into the inspector to see this
+          document.getElementById(selected2).style.backgroundColor = "buttonface";
+          document.getElementById(selected2).style.color = "buttontext";
+        }
+        
+        // switch selected buttons
+        selected2 = selected1;
+        selected2Val = selected1Val;
+        selected1 = clickedBtn;
+        selected1Val = parseFloat(btn);
+        
+        document.getElementById(clickedBtn).style.backgroundColor = "blue";
+        document.getElementById(clickedBtn).style.color = "white";
+      }
+      
+      function calculate2() {
+        if(!selected1 || !selected2) {
+          alert("You have not yet selected 2 buttons.");
+          return;
+        }
+        
+        // we should really move this op logic to an external function since it is used twice.
+        var op = document.getElementById('op2').value;
+        var ans;
+        if(op == "multiply"){
+          ans = selected1Val * selected2Val;
+        } else if(op == "divide"){
+          ans = selected1Val / selected2Val;
+        } else if(op == "add"){
+          ans = selected1Val + selected2Val;
+        } else if(op == "subtract"){
+          ans = selected1Val - selected2Val;
+        }
+        alert(ans);
+      }
+    </script>
+  </body>
+</html>

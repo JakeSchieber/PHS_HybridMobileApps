@@ -1,0 +1,77 @@
+﻿<!--
+  This week was a little bit different because it was a school half day
+  I only have 25 minutes with the students. In order to make the most out of this class
+  my lesson plan is to simply have the students personalize their calculator
+  with an img and various CSS attributes, leaving further JS work to be done next
+  week.
+  
+  Below is an example of the example that I showed to the students.
+  -->
+<!doctype html>
+<html>
+	<head>
+		<title>FunFun</title>
+    <style>
+    
+    body {
+      background: #7474BF; /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient(left, #7474BF , #348AC7); /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(right, #7474BF, #348AC7); /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(right, #7474BF, #348AC7); /* For Firefox 3.6 to 15 */
+      background: linear-gradient(to right, #7474BF , #348AC7); /* Standard syntax */
+    }
+      
+    </style>
+	</head>
+	<body>
+    <div style="text-align: center;">
+      <h1 style="color:white; font-weight: bold; font-size: 300%;">The Awesome Sauce Calculator</h1>
+      <p style="color:#eee; font-size: 150%;">The first calculator ever to make truly awesome sauce.</p>
+      
+      <div style="border-radius: 8px; background-color: #eee; border: 3px solid black; width: 200px; margin: 0 auto; padding: 15px;">
+        <form>
+          <input id="num1" type="text" />
+          <br />
+          <input id="num2" type="text" />
+          <br />
+          <br />
+          <select id="operation">
+            <option value="add">Add</option>
+            <option value="sub">Subtract</option>
+            <option value="mult">Multiply</option>
+          </select>
+          <br />
+          <br />
+          <input type="submit" value="Calculate!" onclick="calc()" />
+        </form>
+      </div>
+    </div>
+
+		<script>
+			function calc() {
+				var num1 = document.getElementById("num1").value;
+				var num2 = document.getElementById("num2").value;
+
+				if(isNaN(parseInt(num1))) {
+					alert("Number 1 is not a number.");
+					return;
+				}
+				if(isNaN(parseInt(num2))) {
+					alert("Number 2 is not a number.");
+					return;
+				}
+
+				var result;
+				var operation = document.getElementById('operation').value;
+				if(operation == "add") {
+					result = parseInt(num1) + parseInt(num2);
+				} else if(operation == "sub") {
+					result = parseInt(num1) - parseInt(num2);
+				} else if(operation == "mult") {
+					result = parseInt(num1) * parseInt(num2);
+				}
+				alert(result);
+			}
+		</script>
+	</body>
+</html>
