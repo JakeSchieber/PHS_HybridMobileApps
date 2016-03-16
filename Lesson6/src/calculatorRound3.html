@@ -160,11 +160,24 @@
         }
         document.getElementById("answer").innerText = ans;
         document.getElementById('answerBlk').style.display = 'block';
+        
+        // woudl allow for us to do a for loop, which I think might be a bit too much.
+        /*
+        console.log(document.getElementsByName('gender'));
+        var radios = document.getElementsByName('gender'); // .map(function(a) { return a.value; })
+        for(var i=0; i<radios.length; i++) {
+          console.log(radios.value); 
+        }
+        <input id="color1" type="radio" name="gender" value="male"> Male<br>
+      <input id="color2" type="radio" name="gender" value="female"> Female<br>
+      <input id="color3" type="radio" name="gender" value="other"> Other
+        */
       }
       
       var selected1, selected2;
       var selected1Val, selected2Val;
       function calcBtn(btn) {
+        
         // why not simply use an if switch here? --> This is more obvious to understand
         var clickedBtn = "calcBtn"+btn;
         // alert(clickedBtn);
