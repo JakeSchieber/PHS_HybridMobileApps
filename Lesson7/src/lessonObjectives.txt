@@ -1,10 +1,12 @@
 Lesson 7 Objectives.
 
-This lesson will be taught differently than past lessons, I will spend the beginning of the class reviewing with the students previous lessons. I will then go over the content for the day (this shoudl take 10-15 minutes). I will then send the students to their desks and allow for them to finish a project which I will designate to them. This project will be started from a booilerplate which contains helpful notes and guidance.
+This lesson will be taught differently than past lessons, I will spend the beginning of the class reviewing with the students our previous lessons. I will then go over the content for the day (this should take 10-15 minutes). I will then send the students to their desks and allow for them to finish a project which I will designate to them in a handour. This project will be started from a booilerplate which contains helpful notes and guidance. The students will type at their desks together as we solve the handout then as a group
 
 Objectives:
 
-To give the students their first chance to independantly work on a project.
-
-
-As a final objective, I will bring images into the project for the first time.
+  To give the students their first chance to work independantly
+  To force students to recall knowledge of how to uncomment
+  To force students to recall knowledge of how to use a block id for selecting from javascript
+  To force students to recall knowledge of how to create and call functions
+  To introduce students to the img block
+  
