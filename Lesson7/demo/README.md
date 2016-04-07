@@ -1,0 +1,1 @@
+This week we tried out things differently, instead of doing a demo in class everyone received this boilerplate code and I walked around the room as the class completed the lesson all together.

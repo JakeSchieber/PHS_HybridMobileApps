@@ -1,0 +1,194 @@
+<!--
+  Lesson 7: Awesome Sauce Calculator. The final round!
+  -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- All header information should be contained in here-->
+    <!-- We place our title inside of the title tags inside of the head block -->
+    <title>The Awesome Sauce Calculator</title>
+    
+    <!-- We place all of our CSS info inside of the style tags of the head block -->
+    <style>
+      /*
+        NOTE: Comments in CSS are enclosed with slashes and asterisks inside of hypons and brackets.
+      */
+      
+      /* CSS elements without a . before their name effect all of the tags in the document with that name */
+      body {
+        text-align: center;
+        background: linear-gradient(to right, #7474BF , #348AC7);
+      }
+      
+      /* CSS elements with a . before their name effect every element in a document that have been given that class name */
+      .mainHeader {
+        color:white;
+        font-weight: bold;
+        font-size: 300%;
+      }
+      .subHeader {
+        color:#eee;
+        font-size: 150%;
+      }
+      
+      .opBox {
+        border-radius: 8px;
+        background-color: white;
+        border: 3px solid black;
+        width: 200px;
+        margin: 0 auto;
+        padding: 15px;
+      }
+      
+      /* EASTER EGG. Make chewie appear on screen using only javascript. */
+      .chewie {
+        border-radius: 40px;
+        width: 200px;
+        
+        display: none;
+      }
+    </style>
+  </head>
+  <!-- All of the words which appear on the screen should be contained in here. -->
+  <body>
+    <!-- Our oage headers -->
+    <h1 class="mainHeader">The Awesome Sauce Calculator</h1>
+    <h4 class="subHeader" onclick="mystery()">The first calculator ever to make truly awesome sauce.</h4>
+    <img id="chewie" class="chewie" src="./chewie.png" />
+    
+    <div id="box" class="opBox">
+      <input type="text" id="num1" />
+      <br>
+      <select id="operation">
+        <option value="multiply">Multiply</option>
+        <option value="divide">Divide</option>
+        <option value="add">Add</option>
+        <option value="subtract">Subtract</option>
+      </select>
+      <br>
+      <input type="text" id="num2" />
+      <br>
+      <input type="submit" value="Calculate!" onclick="calculate()" />
+      <br><br>
+      
+      
+       <!-- TODO 4 Here we want to display the answer to the equation which the user has just typed in.
+        We need to add something here so that we can select this span and insert text? 
+        Look at TODO 4 below in the script block before continuing.
+        
+        * We add a span here so that we can select the element and use the -->
+      <h2>Answer: <span id="answer">?</span></h2>
+      
+      <hr />
+      <!-- Drop down to select the color of the border. -->
+      <h4 style="margin: 0;">Border Color</h4>
+      <select id="borderColorSelect" onchange="setBorderColor()">
+        <option value="black">black</option>
+        <option value="red">red</option>
+        <option value="green">green</option>
+        <option value="blue">blue</option>
+        <option value="white">white</option>
+        <option value="purple">purple</option>
+      </select>
+      
+      <hr />
+      <!-- Drop down to select the color of the background -->
+      <h4 style="margin: 0;">Background Colors</h4>
+      <!-- TODO 5 Lets create a drop down that will let us change the Background color.
+      To do this lets copy the Border color drop down from above, give the select block a new id
+      and then create a new setBackgroundColor() Function which we will define above. After that is finished
+      continue down in the setBackgroundColor functino below. -->
+      <select id="backgroundColorSelect" onchange="setBackgroundColor()">
+        <option value="black">black</option>
+        <option value="red">red</option>
+        <option value="green">green</option>
+        <option value="blue">blue</option>
+        <option value="white">white</option>
+        <option value="purple">purple</option>
+      </select>
+    </div>
+    
+    <script>
+      /*
+        TODO 4b: Complete the function
+        Function to be called when the user clicks calculate.
+      */
+      function calculate() {
+        var num1 = parseFloat(document.getElementById('num1').value);
+        if(isNaN(num1)){
+          alert("Oops, num1 is not a valid number!");
+          return;
+        }
+        var num2 = parseFloat(document.getElementById('num2').value);
+        if(isNaN(num2)){
+          alert("Oops, num2 is not a valid number!");
+          return;
+        }
+        
+        var op = document.getElementById('operation').value;
+        var ans;
+        if(op == "multiply"){
+          ans = num1 * num2;
+        } else if(op == "divide"){
+          ans = num1 / num2;
+        } else if(op == "add"){
+          ans = num1 + num2;
+        } else if(op == "subtract"){
+          ans = num1 - num2;
+        }
+        /*
+            At this point we have our answer is contained in the variable named 'ans', instead of alerting it to the user
+            though, we are going to place the answer on the screen. Some of the necessary code though has been removed,
+            What do we need to do to fix this?
+        */
+        // selected the newly id-ed tag which we created.
+        document.getElementById("answer").innerText = ans;
+
+        // MYSTERY -- Do not change this code, used in a later step
+        if(ans == 100) {
+          mystery();
+        }
+      }
+      
+      /**
+       * This function sets the border color of our calculator application.
+       */
+      function setBorderColor() {
+        var selectedColor = document.getElementById('borderColorSelect').value;
+        document.getElementById('box').style.borderColor = selectedColor;
+      }
+      
+      /**
+       * TODO 5b: complete the function
+       * This function will be used to set the page background color.
+       */
+      function setBackgroundColor() {
+        // Here we select the main block of the document and set it to a constant red, but what do we
+        // we need to do here in order to set the backgroundColor to the output of the selet box.
+        var selectedColor = document.getElementById('backgroundColorSelect').value;
+        document.getElementById('box').style.backgroundColor = selectedColor;
+      }
+      
+      /*
+        TODO 6 - without changing any code, make the wookie appear
+        in order to do this you must read this code and attempt to understand the logic.
+        
+        How is this function called? And what answer do we need to enter into the pop up to make the wookie appear.
+        
+        NOTE: chewie.png must be in your current working directory.
+      */
+      
+      // MYSTERY -- Do not change this code
+      function mystery() {
+        // what does prompt return?
+        var person = prompt("What is Jakes's Favorite Star Wars Character?", ""); 
+        // what does person contain and what are we comparing it to?
+        if(person == 'Chewbacca') {
+          document.getElementById('chewie').style.display = 'inline-block';
+        } else {
+          alert("sorry, that is not correct");
+        }
+      }
+    </script>
+  </body>
+</html>
