@@ -1,0 +1,7 @@
+
+To review what comments are in code and how they work in javascript
+To learn how to use the debugger
+To put to practice knowledge about if statements
+To introduce arrays
+To put to practice knowledge about for loops
+To learn how to loop throught the elements in an array
