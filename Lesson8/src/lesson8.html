@@ -22,8 +22,6 @@
       // Part 3: Save your last name to a variable then try to print that variable out on the screen.
       
       // Part 4: Lets review types
-      // HINT: use console.log() as we go to help answer the questions.
-      
       // WHAT type is this?
       var a = 1;
       
@@ -31,31 +29,15 @@
       var b = "Jake";
       
       // WHAT is c equal to?
+        // HINT: use console.log(c) to check yourself.
       var c = a + b;
       
       // What is e equal to?
       var d = 13;
       var e = a * d;
 
-      // Part 3: 
-      var x = [1, 2, 3, 4, 5, 6];
-      // print out the 3rd element is printed out to the screen.
-      
-      // Part 4:
-      // Try to access the 10th element in this array... What do you end up seeing in the console window?
-      // This is called an ERROR. Using the console window can help us find our bugs and fix our code.
-      // Because our array doesnt have a 10th element this breaks our code. Now comment out this code and continue.
-      
-      // Part 5:
-      var x = [6,1,4,5,2,3];
-      // create 6 console.log() lines that output the elements in this array so that they are displayed in ascending order
-      // ex:
-        // console.log(x[1])
-        // console.log(x[3])
-        // console.log(....)
-        
       /*
-        Part 6:
+        Part 5:
         Arrays are used to store multiple values inside of a single container.
         They can be created several ways, but we will create them like this:
         
@@ -76,21 +58,41 @@
       */
       var x = [1, 2, 3, 4, 5, 6];
       
+      // Part 6:
+      // Try to access the 10th element in this array... What do you end up seeing in the console window?
+      // Because our array doesnt have a 10th element this returns undefined.
+
+      // Part 7
+      // Uncomment the code below, notice that it incorrectly uses {} instead of []
+      // Once ypu have done this run the code in your browser
+      // console.log(x{3});
+      
+      // This is what we call an error. Errors stop code from continuing executino in your browser. Any code
+      // that you have written after an error will not be executed until you have resolved it; This is why 
+      // some of our calculator applications did not work. Errors are printed out to the console to help
+      // developers debug their code, so if your code ever doesnt work, you shoud look in the console window
+      // first. Now comment that code back up and then continue.
+      
       /*
-        Part 7:
+        Part 8:
         Down below we have an array that is jumbled. Without changing the array, output the 
         elements one by one to the console so that they appear in in the correct order.
         
         HINT: Your code should look something like this
-        
-        console.log(jumbled[3]);
-        console.log(jumbled[1]);
-        ...
+          console.log(jumbled[3]);
+          console.log(jumbled[1]);
+          ...
+       
+       But should output something like
+          1
+          2
+          3
+          ...
       */
       var jumbled = [1, 6, 3, 8, 2, 9];
 
       /*
-        Part 8:
+        Part 9:
         For loops are one of the best ways for us to loop through array elements.
         Their structure looks like this
         
@@ -99,69 +101,68 @@
         }
         
         This code says to set i equal to 0, perform some code, and at the end of that code increment i by 1.
-        If at that time i is still less than SOME_NUMBER the code in the loop will execute again.
+        If at that time i is still less than SOME_NUMBER then the code in the loop will execute again.
         So, for instance, if we set SOME_NUMBER equal to 3, this code would be executed 3 times,
         once for when i was equal to 0 1 and 2, but the code would then stop when i was equal to 3 because at
         that point i is no longer less than 3.
         
-        Create a loop below that loops 5 times, and inside of the loop print the variable i used in the for loop
-        to the console.
-      */
-      
-      
-      /*
-        Part 9:
-        Loops in javascript are made to work extremely well with javascript, for this reason arrays have a special
-        property called length. We can access this property by adding ".length" to the end of a variable that is holding an
-        array. Print out the length of the jumbled array that we used earlier below.
+        Create a loop below that loops 5 times, and inside of the loop print the variable i (which we are using as the loop
+        counter) to the console.
       */
       
       /*
         Part 10:
+        Loops in javascript are made to work extremely well with arrays, for this reason arrays have a special
+        property called length. We can access this property by adding ".length" to the end of a variable that is holding an
+        array. Print out the length of the jumbled array that we used earlier.
+      */
+      
+      /*
+        Part 11:
         This .length property returns a number which we can directly use in our for loops.
         Meaning that if we continuing looping until i is less than array.length we will loop
-        once for each element in the array.
+        once for each element in that array.
         
         Below create a for loop that prints your name to the screen the same number of times that there
         are elements in the jumbled array.
       */
       
       /*
-        Part 11:
+        Part 12:
         The coolest part about these for loops is that if we are executing a loop the same number
-        of times that there are elements in an array, we can use our i variable as an offset into our array
+        of times that there are elements in an array, we can use our i counter as an offset into our array
         and perform an action for each element in our array.
         
         Below write code that uses the .length property of the jumbled array to print out each element
         in our jumbled array.
-        HINT: Remember we will access elements in our jumbled array like this: jumbled[...]
+        HINT: Remember we will access elements in our jumbled array like this: jumbled[i]
       */
       
       /*
-        Part 12:
+        Part 13:
         Create a for loop that loops through the jumbled array and prints out the number inside of the array
-        if it is bigger than 3
+        only if that number is bigger than 3
         
         HINT: You will need to use an if statement
       */
       
       /*
-        Part 13:
+        Part 14:
         Create a for loop that loops through the elements in the jumbled array, finds the LARGEST element and then
-        when it is finished, outputs the smallest element to the screen.
+        when it is finished, outputs it to the screen.
         
         HINT: You will need to use a variable to do this.
       */
       
       /*
-        Part 14:
+        Part 15:
         Create a for loop that loops through the elements in the jumbled array, finds the SMALLEST element and then
-        when it is finished, outputs the smallest element to the screen.
+        when it is finished, outputs it to the screen.
       */
 
       /*
         REVIEW:
-        Add 2 divs to the html code at the top of this page and using javascript, select those elements them by their id 
+        Add 2 divs to the html code at the top of this page and using javascript, select those elements by their id 
         and set their .innerText property to the smallest and largest number that we found in the jumbled array above.
         
         EX: document.getElementById("...").innerText = SOME_VARIABLE;

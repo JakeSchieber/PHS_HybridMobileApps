@@ -1,3 +1,4 @@
+Lesson 8 Overall Objectives
 
 To review what comments are in code and how they work in javascript
 To learn how to use the debugger
@@ -5,3 +6,13 @@ To put to practice knowledge about if statements
 To introduce arrays
 To put to practice knowledge about for loops
 To learn how to loop throught the elements in an array
+
+
+Before Class review
+  Comments (2 types)
+  How to use variables
+  Types
+  if statements
+  type eqaulity (especially in relation to if statements)
+  arrays
+  for loops
