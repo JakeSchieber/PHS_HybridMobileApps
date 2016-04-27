@@ -1,0 +1,25 @@
+The main objective of this week's lesson is to practice what we learned last week in week 7.
+No new material will be introduced, instead we will simply work on a few problems that will
+let ths students adapt their problem solving abilities to their newfound skills.
+
+Last week we saw that the students were great at using loop and arrays, but they were struggling
+understanding how the usage of statments inside of the loop could beneficial to them.
+
+Objectives:
+Have the students open up the javascript console without guidance.
+Have the students create an array 
+Have the students create a loop with some suggestion (review of the .length property) 
+Have the students decide on their own that an if statement can be used for control flow.
+Teach the students how we can pull from an array???
+
+
+Pre-class review:
+How do we create an array.
+How can 
+
+
+bit.ly link @ http://bit.ly/1SdV2KQ
+
+
+      // need to explain how the length property changes in loops when we use the splice command inside of it.
+      // need to explain how we need to decrement the counter when we splice an item from an array though. 

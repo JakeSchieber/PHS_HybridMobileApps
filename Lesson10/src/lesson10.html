@@ -1,0 +1,140 @@
+<!doctype html>
+  <head>
+    <title>Lesson 10</title>
+  </head>
+  <body>
+    <h1>Lesson 10</h1>
+    <h4>Part 1:</h4>
+    <p>Lets take a look at our console! So open up this code in one window, and open up chrome in the other with the javascript console showing.</p>
+    <ul>
+      <li>Open up chrome > View > Developer Tools > Javascript Console</li>
+      <li><b>OR</b> right click the page > Inspect > Console</li>
+      <li>If you have done this correctly, when you load this page you should see the a message appear in the console.</li>
+    </ul>
+    
+    <p>Follow along with the instructions in the code to continue this lesson.</p>
+
+    <script>
+      console.log("Lesson 9 Fun Fun: Begin here.");
+      
+      /**
+       * REVIEW: Functions!
+       * 
+       * Functions allow for us to create code which we can reuse! This saves us time and allows for us to write
+       * fewer lines of code that does more.
+       * ex:  
+        
+        // a function which alerts Baby
+        function alertMeBaby() {
+          alert("baby");
+        } 
+        
+        // We can place this code any where inside of our script tags and call it like this:
+        alertMeBaby();
+        
+       * 
+       * We can also add something called parameters to our function which allows for us to send in information
+       * that will allow for the function to run differently on each run.
+       * 
+       * ex: 
+        
+        function alertSpecialSome(specialSomeOnesName) {
+          // alerts to the screen the name of our special someone.
+          alert(specialSomeOnesName);
+        }
+        
+        // we can then call this code like this.
+        alertSpecialSome("Daisy");
+       */
+      
+      /**
+       * Part 1: Lets create a function that loops through an array and prints out each of the elements to the screen.
+       * This way when we are testing our code we dont have to write the same loop over and over again.
+       * Lets call this function 'printArray'
+       * 
+       * When you have completed our loop, send it the variable 'test' below to see if our function works.
+       */
+      var test = [1, 2, 3, 4, 5, 6];
+      
+      /**
+       * Now lets start where we left off last week:
+       * 
+       * One of the best features of javascript is the ability to add and remove from an array.
+       * So this means once we create an array with: 
+       * 
+       *    var a = [];
+       * 
+       * That we can add elements to the array with:
+       * 
+       *    a.push("a word"); // add a string to an array
+       *    OR 
+       *    a.push(1); // add a number to an array
+       */
+      
+      /**
+       * Part 3: Create an array and push your first name to it!
+       */
+      
+      /**
+       * Part 4: Now push your middle name and then your last name to the same array from Part 1
+       * When you are done use your printArray function to see if we properly constructed our array.
+       */
+
+      /**
+       * Sometimes in Javacsript we also need to remove items from an array.
+       * Luckily for us javascript has a function that allows for us to do this.
+       * 
+       *  a.splice(i, c); // this removes from array a, c elements starting at index i.
+       *  ex: a.splice(0, 2); // starts removing items from index one, then removes the next 2 items from that index
+       */
+      
+      /**
+       * Part 4: Now lets see if we can remove an element from our array. Lets remove our MIDDLE name from the array.
+       * Make sure to use the right index! When you are done print your array to the screen.
+       */
+      
+      /**
+       * Part 5: Lets create an array that contains all of the elements 1 through 10. 
+       * Once you have done this print the array to the screen.
+       * 
+       * NOTE: The code below is what we did last week to accomplish this task, lets make sure to use our push
+       * function this time around!
+       
+        var a = [0,1,2,3,4,5,6,7,8,9,10]
+        for (var i=1;i<11;i++) {
+          console.log(a[i]);
+        }
+       */
+      
+      /**
+       * Down below we have an array of names. Why dont we remove every name from the array that starts with a 'J'
+       * and then print the resultant array to the console.
+       * 
+       * HINT: we can use the expression a.charAt(i); on strings to get the ith letter of that string.
+       * ex:
+       *  var a = "Jake";
+       *  a.charAt(2); // Returns 'k' because a is at index 2 in the array (remember arrays are 0-indexed, meaning 
+       *                // that the first item is item 0) 
+       */
+      var nameAr = ["Alex", "Jake", "Randi", "Nick", "Joe", "Jonny", "Chari", "Russell"];
+      
+      /**
+       * A common check in computer science is whether a number is divisible by 2.
+       * Javascript makes this extremely easy. Lets create an array that adds all of the even numbers 1 through
+       * 20 to an array.
+       * 
+       * CHALLENGE 1: Create a loop from 0 to 20, and place an if statement inside the loop that only adds the number 
+       * to the array if the number is an even. This check for an even number can easily be performed with a simple arithmatic
+       * expression and the Math.round() function which rounds a number to the nearest whole number.
+       * 
+       * ex: Math.round(2.5); // Outputs the number 3
+       *  var a = 2.2;
+       *  Math.round(a); // Outputs 2
+       * 
+       * CHALLENGE 2: What is a much more sneaky way that we could create this array that does not require an if statement?
+       * Hacks like these are what programmers are paid to look for. What is the simplest way to accomplish the same thing.
+       */
+      
+    </script>
+  </body>
+</html>

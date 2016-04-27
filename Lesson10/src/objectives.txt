@@ -1,0 +1,15 @@
+The objectives for Lesson 10 are the exact same objectives as for Lesson 9.
+Lesson 9 was taught during a shortened school day due to an early release and it turned into
+mostly review the week before. In that time we went over for loops. The use of push and pull.
+The creation of Arrays. And the use of the .length property when using a for loop.
+
+Objectives:
+Have the students open up the javascript console without guidance.
+Have the students create an array without guidance
+Have the students create a loop with some suggestion (review of the .length property) 
+Have the students decide on their own that an if statement can be used for control flow.
+Teach the students how we can pull from an array???
+
+Lesson 9 has been extremely extended to make the lesson10 which we see here.
+
+http://bit.ly/1SdV2KQ

@@ -7,7 +7,6 @@ To introduce arrays
 To put to practice knowledge about for loops
 To learn how to loop throught the elements in an array
 
-
 Before Class review
   Comments (2 types)
   How to use variables
@@ -16,3 +15,6 @@ Before Class review
   type eqaulity (especially in relation to if statements)
   arrays
   for loops
+
+Bit.ly link to the lesson:
+  http://bit.ly/22hNjxQ
