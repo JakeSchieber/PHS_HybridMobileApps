@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <!-- 
+    src location of all card images:
+    https://code.google.com/archive/p/vector-playing-cards/downloads 
+    
+    FUTURE IMPROVEMENTS
+      Allow the user to place a bet
+        give the user a starting allowance
+        Pay out 1x on win
+        Pay out 1.5x on blackjack
+        No Pay out on tie
+        Loss of bet on loss
+      
+      Alert to the user when they get a black jack
+      
+      Allow for Aces to count as both 1 and 11
+  -->
+  <head>
+    <script>
+      // Global variables used to store each of the players scores.
+      var playerScore, dealerScore, gameOver;
+           
+      /**
+       * In order to start the game each player gets 2 cards.
+       * NOTE: The dealer technically gets 2 cards, but they only show you 1 of them.
+       * UPGRADE: We should show a card back as the second dealer card
+       */
+      function startGame() {
+        document.getElementById("startBtn").style.display = "none";
+        document.getElementById("gameData").style.display = "block";
+        
+        // set players scores to zero and deal them their opening cards
+        playerScore = 0;
+        dealerScore = 0;
+        gameOver = false;
+        dealCards();
+      }
+      
+      /**
+       * function to deal the initial 3/4 cards to the players
+       */
+      function dealCards() {
+        // player gets 2 cards
+        addCard(false);
+        addCard(false);
+        
+        // TODO: What happens if the player gets 2 Aces, currently that would give them a score of 22 and they
+        // would bust... Do we want this to be able to happen.
+        
+        // dealer gets 2 cards but only reveals one. So for simplicity we will just deal
+        addCard(true);
+      }
+      
+      /**
+       * function to add a card to the current player
+       */
+      function hit() {
+        // Dont let the user perform this action if the game is already over
+        if(gameOver) {
+          alert("Oops, the game is over. You must restart the game in order to continue playing.");
+          return;
+        }
+        
+        
+        // add a card to the players hand.
+        addCard(false);
+        
+        // did the player bust?
+        if(playerScore > 21) {
+          alert("LOSS! You busted. The dealer wins!");
+          gameOver = true;
+        } 
+      }
+      
+      /**
+       * function to finish a game when the player chooses to stay.
+       * Must play out the dealers hand and then evaluate who won.
+       */
+      function stay() {
+        // Dont let the user perform this action if the game is already over
+        if(gameOver) {
+          alert("Oops, the game is over. You must restart the game in order to continue playing.");
+          return;
+        }
+        
+        // this is a while loop. A while loop will continue executing until their condition becomes false.
+        // In our case, it will continue executing until the dealer is either at 17 and has to stay (by the rules of blackjack)
+        // or busts with a score greater than 21
+        while(dealerScore < 17) {
+          addCard(true);
+        }
+        
+        if(dealerScore > 21) {
+          alert("WIN! The dealer busted and you win!")
+        } else if(dealerScore == playerScore) {
+          alert("TIE! You and the dealer both got the same score.");
+        } else if(dealerScore > playerScore) {
+          alert("LOSS! The dealer outscored you.")
+        } else {
+          alert("WIN! You outscored the dealer!")
+        }
+        gameOver = true;
+      }
+      
+      /**
+       * In order to restart the game we need to clear out all of the cards which we have already 
+       */      
+      function restartGame() {
+        document.getElementById("ours").innerHTML = '';
+        document.getElementById("dealers").innerHTML = '';
+      
+        // zero out players scores and deal their opening cards
+        playerScore = 0;
+        dealerScore = 0;
+        gameOver = false;
+        dealCards();
+      }
+      
+      /**
+       * Function a card to the screen. Either to the player or to the dealer
+       * as specified by the input parameter.
+       */
+      function addCard(toDealer) {
+        // here we need to add the proper 
+        var playerDiv;
+        if(toDealer) { // send isDealer instead to addCard and then get the rest of the logic handled.
+          playerDiv = "dealers";
+        } else {
+          playerDiv = "ours";
+        }
+        // get a card id between 0 and 51 inclusively
+        var cardId = getRandomNumber(51);
+        var suit = getCardSuit(cardId);
+        // number is a base zero number between 0 and 12, but we need a value of between 1 and 13 
+        // inclusively, so add 1
+        var num = getCardNumber(cardId) + 1; 
+        
+        appendCardToOurList(playerDiv, num, suit);
+        
+        // add to the dealer score
+        if(toDealer) {
+          if(num == 1) {
+            // Ace. For now we will only let aces be used as 11's because this is what would allow for us
+            // to get a blackjack, but we should find a way to let it count for 1 too.
+            dealerScore = dealerScore + 11;
+          } else if(num < 10) {
+            // all cards less than ten are worth face value
+            dealerScore = dealerScore + num;
+          } else {
+            // every other card, 10, Jack, Queen and King are worth 10
+            dealerScore = dealerScore + 10;
+          }
+          // update the page to show the change
+          document.getElementById("dealerScore").innerText = dealerScore;
+        } else {
+          if(num == 1) {
+            // Ace. For now we will only let aces be used as 11's because this is what would allow for us
+            // to get a blackjack, but we should find a way to let it count for 1 too.
+            playerScore = playerScore + 11;
+          } else if(num < 10) {
+            // all cards less than ten are worth face value
+            playerScore = playerScore + num;
+          } else {
+            // every other card, 10, Jack, Queen and King are worth 10
+            playerScore = playerScore + 10;
+          }
+          // update the page to show the change
+          document.getElementById("playerScore").innerText = playerScore;
+        }
+      };
+      
+      /**
+       * Global variables to hold traditional card names and numbers
+       */
+      var cardNumbers = [
+        'joker',
+        'ace',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9',
+        '10',
+        'jack',
+        'queen',
+        'king'
+      ];
+      var cardSuits = [
+        'hearts',
+        'clubs',
+        'spades',
+        'diamonds'
+      ];
+      /**
+       * Appends a card to a list of cards on screen
+       */
+      function appendCardToOurList(divId, num, suit) {
+        if(!num | num < 1 | num > 13) {
+          alert("oops, invalid number.");
+          return;
+        } else if(suit < 0 | suit > 3){
+          alert("oops, invalid suit.");
+          return;
+        }
+        
+        var elem = document.createElement("img");
+        // note need to add 2 to end if a faced card
+        elem.setAttribute("src", "cards/" + cardNumbers[num] + "_of_" + cardSuits[suit] + (num > 10 ? '2' : '') + ".png");
+        elem.setAttribute("width", "100");
+        elem.style.marginRight = "10px";
+        document.getElementById(divId).appendChild(elem);
+      }
+      /**
+       * Both of these functions return a zero-based card index
+       * into the cardNumbers and card Suits arrays relating a 
+       * number between 0 and 52 to a single card.
+       */
+      function getCardSuit(card) {
+        return Math.floor(card / 13);  
+      }
+      function getCardNumber(card) {
+        return card % 13;
+      }
+      /**
+       * Returns a random number between 0 and max
+       */
+      function getRandomNumber(max) {
+        return Math.floor(Math.random() * (max + 1));
+      }
+      
+    </script>
+  </head>
+  <body>
+    
+    <h2>The FunFun BlackJack Game</h2>
+    
+    <!-- Start Game will be showed initially on page load -->
+    <button id="startBtn" onclick="startGame()">Click To Start a Game</button>
+    
+    <!-- gameData will be show to the user when the game begins -->
+    <div id="gameData" style="display: none;">
+      <button id="restartBtn" onclick="hit()">Hit Me!</button>
+      <button id="restartBtn" onclick="stay()">Stay</button>
+      <button id="restartBtn" onclick="restartGame()">Restart Game</button>
+      
+      <h4>Our Cards</h4>
+      <p>Your score: <span id="playerScore"></span></p>
+      <div id="ours"></div>
+      
+      <h4>Dealers Cards</h4>
+      <p>Dealer Score: <span id="dealerScore"></span></p>
+      <div id="dealers"></div>
+    </div>
+  </body>
+</html>

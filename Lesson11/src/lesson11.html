@@ -1,0 +1,138 @@
+<!doctype html>
+  <head>
+    <title>Lesson 11</title>
+  </head>
+  <body>
+    <h1>Lesson 11</h1>
+    <h4>Part 1:</h4>
+    <p>Lets take a look at our console! So open up this code in one window, and open up chrome in the other with the javascript console showing.</p>
+    <ul>
+      <li>Open up chrome > View > Developer Tools > Javascript Console</li>
+      <li><b>OR</b> right click the page > Inspect > Console</li>
+      <li>If you have done this correctly, when you load this page you should see the a message appear in the console.</li>
+    </ul>
+    
+    <p>Follow along with the instructions in the code to continue this lesson.</p>
+    
+    <hr />
+    
+    <h3>My Todos</h3>
+    <table id="todoTable" border="1" style="width: 300px;"></table>
+    
+    <br>
+    <h5 style="margin-bottom: 5px">Submit new todo:</h5>
+    <input type="text" id="todo" />
+    <button type="button" onclick="addTodoFromForm()">Add Todo</button>
+
+    <script>
+      console.log("Lesson 11 Fun Fun: Begin here.");
+
+      /**
+       * todos is a global array which we are going to use to hold all of our todos.
+       */
+      var todos = ["Go walking", "Go to the store"];
+      
+      /**
+       * This function will be called whenever you click the remove button next to a todo in the table
+       */
+      function removeTodo(index) {
+        // What do we need to do here?
+        
+        // What do we need to do here?
+        drawTable(todos);
+      }
+      
+      /**
+       * This function will be called whenever you click add todo
+       */
+      function addTodo(todo) {
+        // What do we need to do here?
+        
+        // redward table to the screen
+        drawTable(todos);
+      }
+      
+      /**
+       * This function should be called to redraw the table whenever you touch the todos array.
+       */
+      function drawTable() {
+        // restartTable
+        restartTable();
+        
+        // What do we need to do here to make this work when add or remove items from an array?
+        addTableRow(todos[0], 0);
+        addTableRow(todos[1], 1);
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+      /**
+       * Jakes code, don't touch this code....
+       */
+      function addTodoFromForm() {
+        // Grab the valuee of the text box.
+        var currTodo = document.getElementById("todo").value;
+        // add the value found in the input element to the table
+        addTodo(currTodo);
+        // clear the form
+        document.getElementById("todo").value = "";
+      }
+      
+      /**
+       * Table management functions
+       */
+      function restartTable() {
+        // Find a <table> element with id="todoTable":
+        var table = document.getElementById("todoTable");
+        // Remove any content that currently resides in the table.
+        table.innerHTML = "";
+        // add header to the table.
+        addHeader(table);
+      }
+      function addHeader(table) {
+        // Create a header section in the table
+        var header = table.createTHead();
+        // Create an empty <tr> element and add it to the first position of <thead>:
+        var row = header.insertRow(0);     
+        // Insert a new cell (<td>) at the first position of the "new" <tr> element:
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        
+        cell1.innerHTML = "Index";
+        cell2.innerHTML = "Todo";
+        cell3.innerHTML = "Action";
+      }
+      function addTableRow(todo, index) {
+        // Find a <table> element with id="todoTable":
+        var table = document.getElementById("todoTable");
+        // Create an empty <tr> element and add it to the 1st position of the table:
+        var row = table.insertRow(-1);
+        // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        
+        // Add some text to the new cells:
+        cell1.innerHTML = index;
+        cell2.innerHTML = todo;
+        cell3.innerHTML = "<a href='#' onclick='removeTodo(" + index + ")'>Remove</a>";
+      }
+      
+      /**
+       * This is a javascript function which will be called only after the page has been loaded.
+       * When we are running javascript that interacts with the HTML on a page we should use this function
+       * to make sure that all of the HTML elements that we are going to interact with have been rendered in
+       * the browser.
+       */
+      window.onload = function() {
+        drawTable();
+      }
+    </script>
+  </body>
+</html>

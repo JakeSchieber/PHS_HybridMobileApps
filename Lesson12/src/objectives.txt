@@ -1,0 +1,16 @@
+As the last official week of class, Lesson 12 is primarily focused on intoducing the
+students to a fun web game which we will be able to complete in class but which
+also can be further improved by the students throughout the summer. This was enacted
+through a blackjack game which would allow for us to implement game logic, add dynamic
+images to the dom, and manipulate the dom as needed (ex: removing all cards from the screen
+when a game has been completed). We will leave the creation of a betting and scoring system
+for them to do as a private project over the summer.
+
+Objectives:
+Add images to the screen with javascript
+How to remove elements from the DOM
+Reapply knowledge of random number generation
+Give the students the first look at what coding a game looks like.
+Lay the groundwork for the creation of a future scoring/betting system.
+
+http://bit.ly/1rL6AfK

@@ -1,0 +1,14 @@
+The primary obective for Lesson 11 was to begin to pull everything that we had learned this
+semester back together to prepare for our last few days of class. This was enacted with the creation
+of a todo app that would allow for students to use what they had learned about arrays and have it be
+represented in app form using the CSS and HTML which they learned about at the beginning of the class.
+
+Unfortunately this was a shortened day the students so we only had 25 minutes to work with.
+
+Objectives:
+Have the students view the entire stack a full featured app.
+Give students the chance to apply their knowledge of arrays
+Introduce HTML tables as a way to visualize an array of data.
+Introduce how to loop back into the DOM after javascript events.
+
+http://bit.ly/1N6KdeD

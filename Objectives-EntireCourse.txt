@@ -1,0 +1,98 @@
+Lesson 1
+Objectives:
+  Syllabus day! Answer the following questions:
+    Why should you care about coding?
+    What is a program?
+    What is an app?
+    What is a mobile app?
+    What is a hybrid mobile app?
+    What are we going to be doing in this class?
+    What is the goal for our semester?
+
+Lesson 2
+Objectives:
+  Introduce students to their dev environment: Sublime and Google Chrome on local work stations
+  To Introduce HTML, CSS and Javscript at a high level
+  To show the students a barebones HTML page
+  To let the students open their first page in the browser
+  
+Lesson 3
+Objectives:
+  Review what HTML, CSS and Javascript are and how they are used
+  Discuss Javascript types: String, Number, Boolean, Object, Array, Null, Undefined, NaN 
+  Connecting HTML buttons to a javascript function 
+  Alert messages to the user from javascript with alert()
+  
+Lesson 4
+Objectives:
+  Introduce forms and learn how to connect them with javascript
+  Begin work on our first big project: the calculator app
+  Build the layout for the page: 2 inputs and a submit button
+  Parsing strings to integers
+  
+Lesson 5
+Objectives:
+  Introduce functions and describe their purpose
+  Continue work on our calculator application
+  Add a drop down that allows for users to select an arithmetic function
+  Introduce if statments
+    Explain the perfect connection of if statements and the drop box
+
+Lesson 6
+Objectives:
+  Finish our calculator application
+  Add some CSS to make it look fancy
+  Introduce globally scoped variables and describe how different functions can use them
+  Add traditional calculator number buttons to our app
+    This will require the students to store clicks sequentially in global variables.
+  
+Lesson 7
+Objectives:
+  To give the students their first chance to work independantly
+  To force students to recall knowledge of how to uncomment code
+  To force students to recall knowledge of how to use a block id for selecting blocks from javascript
+  To force students to recall knowledge of how to create and call functions
+  To introduce students to the img block
+
+Thought Shift:
+It was here where we decided that the inclusion of HTML, CSS and Javascript in every lesson was
+too much all at once for the students. So after this point our lessons began to focus on
+mainly javascript with required UI functionality done by me before class.
+
+Lesson 8
+Objectives:
+  To review what comments are in code and how they work in javascript
+  To learn how to use the debugger
+  To put to practice knowledge about if statements
+  To introduce arrays
+  To put to practice knowledge about for loops
+  To learn how to loop throught the elements in an array
+  
+Lesson 9
+* Shortened School Day
+Objectives:
+  Have the students open up the javascript console without guidance.
+  Have the students create an array 
+  Have the students create a loop with some suggestion (review of the .length property) 
+  Have the students decide on their own that an if statement can be used for control flow.
+  Teach the students how we can pull from an array
+  
+Lesson 10 
+Objectives:
+  Because the previous lesson was on a shortened school day, we continues the lesson from
+  the week before. The objectives, therefore, are the same as for Lesson 9
+
+Lesson 11
+Objectives:
+  Have the students view the entire stack a full featured app.
+  Give students the chance to apply their knowledge of arrays
+  Introduce HTML tables as a way to visualize an array of data.
+  Introduce how to loop back into the DOM after javascript events.
+
+Lesson 12
+Objectives:
+  Add images to the screen with javascript
+  How to remove elements from the DOM
+  Reapply knowledge of random number generation
+  Give the students the first look at what coding a game looks like.
+  Lay the groundwork for the creation of a future scoring/betting system.

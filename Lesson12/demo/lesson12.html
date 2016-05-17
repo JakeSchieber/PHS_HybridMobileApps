@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <!-- https://code.google.com/archive/p/vector-playing-cards/downloads 
+  download the png files containing all of the deck of cards images
+  -->
+  <head>
+    <script>
+      /**
+       * Function to be called when the add card button is clicked.
+       */
+      function addCard() {
+        appendCardToOurList("ours", 1, 0);
+      };
+      
+      /**
+       * Global variables to hold traditional card names and numbers
+       */
+      var cardNumbers = [
+        'joker',
+        'ace',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9',
+        '10',
+        'jack',
+        'queen',
+        'king'
+      ];
+      var cardSuits = [
+        'hearts',
+        'clubs',
+        'spades',
+        'diamonds'
+      ];
+      /**
+       * Appends a card to a list of cards on screen
+       */
+      function appendCardToOurList(divId, num, suit) {
+        if(!num | num < 1 | num > 13) {
+          alert("oops, invalid number.");
+          return;
+        } else if(suit < 0 | suit > 3){
+          alert("oops, invalid suit.");
+          return;
+        }
+        
+        var elem = document.createElement("img");
+        // note need to add 2 to end if a faced card
+        elem.setAttribute("src", "cards/" + cardNumbers[num] + "_of_" + cardSuits[suit] + (num > 10 ? '2' : '') + ".png");
+        elem.setAttribute("width", "100");
+        elem.style.marginRight = "10px";
+        document.getElementById(divId).appendChild(elem);
+      }
+      /**
+       * Both of these functions return a zero-based card index
+       * into the cardNumbers and card Suits arrays relating a 
+       * number between 0 and 52 to a single card.
+       */
+      function getCardSuit(card) {
+        return Math.floor(card / 13);  
+      }
+      function getCardNumber(card) {
+        return card % 13;
+      }
+      /**
+       * Returns a random number between 0 and max
+       */
+      function getRandomNumber(max) {
+        return Math.floor(Math.random() * (max + 1));
+      }
+      
+    </script>
+  </head>
+  <body>
+    
+    <h3>Cool BlackJack Game</h3>
+    
+    <button onclick="addCard()">Click To Add Card</button>
+    
+    <h4>Our Cards</h4>
+    <div id="ours"></div>
+    
+    <h4>Dealers Cards</h4>
+    <div id="dealers"></div>
+    
+  </body>
+</html>
